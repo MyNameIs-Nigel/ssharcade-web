@@ -16,6 +16,42 @@
   --font-mono: var(--font-mono);
 }
 
+/*
+ * The arcade's accent color follows whichever cabinet is selected.
+ * Registering these as <color> properties lets them animate, so the
+ * background gradient and every accent surface can cross-fade smoothly.
+ */
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffb000;
+}
+
+@property --cabinet-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #7c7669;
+}
+
+.theme-root {
+  /* A deeper companion to --accent for the orange/secondary accents. */
+  --accent-deep: color-mix(in srgb, var(--accent) 70%, #7a2900);
+  transition: --accent 600ms ease;
+}
+
+.cabinet-stage {
+  transition: --cabinet-accent 600ms ease;
+}
+
+/* Faint accent wash + the dotted engineering grid behind everything. */
+.arcade-backdrop {
+  background-image:
+    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 28%),
+    linear-gradient(90deg, rgba(23, 21, 15, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(23, 21, 15, 0.05) 1px, transparent 1px);
+  background-size: auto, 42px 42px, 42px 42px;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -40,7 +76,12 @@ html {
 .cabinet-screen {
   box-shadow:
     inset 0 0 0 5px rgba(248, 241, 220, 0.08),
-    inset 0 0 48px rgba(255, 176, 0, 0.2);
+    inset 0 0 48px color-mix(in srgb, var(--cabinet-accent) 45%, transparent);
+}
+
+/* Powered-down look while no cabinet is selected. */
+.cabinet-screen.is-off {
+  filter: grayscale(0.55) brightness(0.6);
 }
 
 .cabinet-screen::after {
@@ -66,7 +107,31 @@ html {
 .coin-button {
   background-image:
     radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.55), transparent 20%),
-    linear-gradient(180deg, #ffd36a, #ffb000 58%, #d98800);
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent) 65%, white),
+      var(--accent) 58%,
+      color-mix(in srgb, var(--accent) 70%, black)
+    );
+}
+
+/* Draws the eye to the active cabinet's <ENTER> call-to-action. */
+.enter-pulse {
+  animation: enterPulse 1.5s ease-out infinite;
+}
+
+@keyframes enterPulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 65%, transparent);
+  }
+
+  70% {
+    box-shadow: 0 0 0 14px color-mix(in srgb, var(--accent) 0%, transparent);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent);
+  }
 }
 
 @keyframes scan {
