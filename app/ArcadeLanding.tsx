@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent } from "react";
+import { siteConfig } from "./site";
 
 const games = [
   {
@@ -11,7 +12,7 @@ const games = [
     cabinet: "F-01",
     summary:
       "A cozy idle farm that lives in your terminal. Plant, wait, harvest, and let the field keep time while you are away.",
-    command: "ssh farm.ssh-arcade.dev",
+    command: siteConfig.sshCommand,
     meter: "Live cabinet",
   },
   {
@@ -101,8 +102,8 @@ export default function ArcadeLanding() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#d7d1c3] text-[#17150f]">
-      <div className="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(255,176,0,0.24),transparent_28%),linear-gradient(90deg,rgba(23,21,15,0.06)_1px,transparent_1px),linear-gradient(rgba(23,21,15,0.05)_1px,transparent_1px)] bg-[size:auto,42px_42px,42px_42px]" />
-      <div className="fixed inset-0 pointer-events-none opacity-[0.18] mix-blend-multiply grain" />
+      <div aria-hidden="true" className="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_20%,rgba(255,176,0,0.24),transparent_28%),linear-gradient(90deg,rgba(23,21,15,0.06)_1px,transparent_1px),linear-gradient(rgba(23,21,15,0.05)_1px,transparent_1px)] bg-[size:auto,42px_42px,42px_42px]" />
+      <div aria-hidden="true" className="fixed inset-0 pointer-events-none opacity-[0.18] mix-blend-multiply grain" />
 
       <section className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-4 sm:px-6 lg:px-8">
         <header className="z-10 flex items-center justify-between rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-3 shadow-[8px_8px_0_#17150f]">
@@ -113,7 +114,7 @@ export default function ArcadeLanding() {
             SSH-Arcade
           </a>
           <div className="hidden items-center gap-3 text-xs font-black uppercase tracking-[0.22em] md:flex">
-            <span className="h-3 w-3 animate-pulse rounded-full bg-[#73d13d] shadow-[0_0_18px_#73d13d]" />
+            <span aria-hidden="true" className="h-3 w-3 animate-pulse rounded-full bg-[#73d13d] shadow-[0_0_18px_#73d13d]" />
             Now featuring: Farm
           </div>
           <button
@@ -308,7 +309,7 @@ export default function ArcadeLanding() {
             <a className="rounded-xl border-2 border-[#f8f1dc] px-3 py-3 text-center transition-colors hover:bg-[#f8f1dc] hover:text-[#17150f]" href="https://ko-fi.com" target="_blank" rel="noreferrer">
               Ko-fi
             </a>
-            <a className="rounded-xl border-2 border-[#f8f1dc] px-3 py-3 text-center transition-colors hover:bg-[#f8f1dc] hover:text-[#17150f]" href="mailto:hello@ssh-arcade.dev?subject=Support%20SSH-Arcade">
+            <a className="rounded-xl border-2 border-[#f8f1dc] px-3 py-3 text-center transition-colors hover:bg-[#f8f1dc] hover:text-[#17150f]" href={`mailto:${siteConfig.email}?subject=Support%20SSH-Arcade`}>
               Contact
             </a>
           </div>
@@ -320,8 +321,16 @@ export default function ArcadeLanding() {
               <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-[#5c523d]">
                 Server costs: 64 coins / month
               </p>
-              <div className="mt-3 h-8 overflow-hidden rounded-full border-4 border-[#17150f] bg-[#f8f1dc]">
-                <div className="h-full bg-[#ff6b00] transition-all duration-500" style={{ width: `${progress}%` }} />
+              <div
+                className="mt-3 h-8 overflow-hidden rounded-full border-4 border-[#17150f] bg-[#f8f1dc]"
+                role="progressbar"
+                aria-label="Monthly server costs covered"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={progress}
+                aria-valuetext={`${coins} of 64 coins stacked (${progress}%)`}
+              >
+                <div aria-hidden="true" className="h-full bg-[#ff6b00] transition-all duration-500" style={{ width: `${progress}%` }} />
               </div>
               <p className="mt-2 font-mono text-sm font-black">{coins} / 64 coins stacked ({progress}%)</p>
             </div>

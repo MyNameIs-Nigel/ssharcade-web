@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SSH-Arcade">
+  <rect width="64" height="64" rx="14" fill="#17150f" />
+  <path d="M16 21 L29 32 L16 43" fill="none" stroke="#ffb000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="33" y1="44" x2="49" y2="44" stroke="#ffb000" stroke-width="6" stroke-linecap="round" />
+</svg>
