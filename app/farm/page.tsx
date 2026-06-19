@@ -15,11 +15,13 @@ export const metadata: Metadata = {
     title: `${title} | ${siteConfig.name}`,
     description,
     url: `${siteConfig.url}/farm`,
+    // og:image is supplied automatically by app/farm/opengraph-image.tsx
   },
   twitter: {
     card: "summary_large_image",
     title: `${title} | ${siteConfig.name}`,
     description,
+    // twitter:image falls back to the generated opengraph-image
   },
 };
 
