@@ -219,12 +219,12 @@ export default function TerminalDemo() {
     <div
       role="img"
       aria-label="A live preview of the ssh-idlefarmer terminal game: a farm of crops growing and ripening, coins ticking up as they are harvested."
-      className="flex min-h-[24rem] flex-col rounded-[0.6rem] border-2 p-3 font-mono text-[0.72rem] leading-relaxed sm:min-h-[27rem] sm:p-4 sm:text-sm"
+      className="flex min-h-[22rem] min-w-0 flex-col rounded-[0.6rem] border-2 p-2.5 font-mono text-[0.68rem] leading-relaxed sm:min-h-[27rem] sm:p-4 sm:text-sm"
       style={{ background: TERM.bg, borderColor: TERM.frame, color: TERM.text } as CSSProperties}
     >
       {/* Header */}
-      <div className="flex items-center justify-between gap-2">
-        <span className="truncate">
+      <div className="flex min-w-0 items-center justify-between gap-2">
+        <span className="min-w-0 truncate">
           <span aria-hidden="true">🌾 </span>
           <b style={{ color: TERM.bright }}>ssh-idlefarmer</b>
           <span style={{ color: TERM.dim }}> · user </span>
@@ -259,7 +259,7 @@ export default function TerminalDemo() {
       </div>
 
       {/* Nav */}
-      <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+      <div className="mt-1 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 sm:gap-x-3">
         {NAV.map((tab) =>
           tab.active ? (
             <span key={tab.key} className="rounded px-1.5 font-bold" style={{ background: TERM.tabBg, color: TERM.tabText }}>
@@ -288,7 +288,7 @@ export default function TerminalDemo() {
             return (
               <div
                 key={i}
-                className="rounded-[0.4rem] border px-2.5 py-1.5"
+                className="min-w-0 rounded-[0.4rem] border px-2 py-1.5 sm:px-2.5 sm:py-1.5"
                 style={{
                   borderColor: selected ? TERM.bright : ready ? TERM.frame : "#2e4a2c",
                   boxShadow: selected ? `0 0 0 1px ${TERM.bright}` : undefined,
@@ -346,7 +346,7 @@ export default function TerminalDemo() {
             press any key to continue
           </p>
         )}
-        <p className="mt-0.5 truncate text-[0.66rem] sm:text-xs" style={{ color: TERM.dim }}>
+        <p className="mt-0.5 text-[0.6rem] leading-snug break-words sm:truncate sm:text-xs" style={{ color: TERM.dim }}>
           ←↑↓→ · enter plant/harvest · a harvest all · r replant all · u upgrades · g gift · q leave
         </p>
       </div>

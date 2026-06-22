@@ -42,7 +42,7 @@ export default function FarmCabinet() {
 
       {/* ---- Status bar ---- */}
       <header className="relative z-10 mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-3 rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-3 shadow-[8px_8px_0_#17150f]">
+        <div className="flex items-center justify-between gap-3 rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-3 shadow-[4px_4px_0_#17150f] sm:shadow-[8px_8px_0_#17150f]">
           <Link
             href="/"
             className="flex items-center gap-2 rounded-full border-2 border-[#17150f] bg-[#17150f] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[var(--accent)] shadow-[3px_3px_0_var(--accent)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)]"
@@ -74,16 +74,16 @@ export default function FarmCabinet() {
           <button
             type="button"
             onClick={copyCommand}
-            className="group flex min-h-16 flex-1 items-center justify-between gap-4 rounded-[1.15rem] border-4 border-[#17150f] bg-[#17150f] px-5 py-4 font-mono text-sm font-bold text-[#f8f1dc] shadow-[7px_7px_0_var(--accent)] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)]"
+            className="group flex min-h-16 min-w-0 flex-1 items-center justify-between gap-4 rounded-[1.15rem] border-4 border-[#17150f] bg-[#17150f] px-5 py-4 font-mono text-sm font-bold text-[#f8f1dc] shadow-[4px_4px_0_var(--accent)] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] sm:shadow-[7px_7px_0_var(--accent)]"
           >
-            <span>{siteConfig.sshCommand}</span>
-            <span className="rounded-full bg-[var(--accent)] px-3 py-1 font-display text-xs uppercase tracking-[0.16em] text-[#17150f]">
+            <span className="min-w-0 truncate">{siteConfig.sshCommand}</span>
+            <span className="shrink-0 rounded-full bg-[var(--accent)] px-3 py-1 font-display text-xs uppercase tracking-[0.16em] text-[#17150f]">
               {copied ? "Copied" : "Copy"}
             </span>
           </button>
           <a
             href="#screen"
-            className="flex min-h-16 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[var(--accent-deep)] px-6 py-4 text-sm font-black uppercase tracking-[0.18em] shadow-[7px_7px_0_#17150f] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
+            className="flex min-h-16 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[var(--accent-deep)] px-6 py-4 text-sm font-black uppercase tracking-[0.18em] shadow-[4px_4px_0_#17150f] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] sm:shadow-[7px_7px_0_#17150f]"
           >
             Watch it run ↓
           </a>
@@ -96,7 +96,7 @@ export default function FarmCabinet() {
           <div className="absolute -left-3 top-12 hidden h-28 w-7 rounded-l-2xl border-4 border-r-0 border-[#17150f] bg-[var(--accent-deep)] shadow-[5px_5px_0_#17150f] lg:block" />
           <div className="absolute -right-3 top-28 hidden h-36 w-7 rounded-r-2xl border-4 border-l-0 border-[#17150f] bg-[var(--accent)] shadow-[5px_5px_0_#17150f] lg:block" />
 
-          <div className="rounded-[2.3rem] border-4 border-[#17150f] bg-[#4b4a42] p-3 shadow-[14px_14px_0_#17150f] sm:p-5">
+          <div className="rounded-[2.3rem] border-4 border-[#17150f] bg-[#4b4a42] p-3 shadow-[6px_6px_0_#17150f] sm:p-5 sm:shadow-[14px_14px_0_#17150f]">
             {/* Marquee */}
             <div className="mb-3 flex items-center justify-between gap-2 rounded-[1.2rem] border-4 border-[#17150f] bg-[#17150f] px-4 py-2 text-[var(--accent)]">
               <span className="font-display text-lg font-black uppercase tracking-[0.12em] sm:text-2xl">★ FARM ★</span>
@@ -125,10 +125,10 @@ export default function FarmCabinet() {
               <button
                 type="button"
                 onClick={copyCommand}
-                className="group flex min-h-14 items-center justify-between gap-3 rounded-[1.1rem] border-4 border-[#17150f] bg-[#17150f] px-4 py-3 font-mono text-xs font-bold text-[#f8f1dc] shadow-[5px_5px_0_var(--accent)] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] sm:text-sm"
+                className="group flex min-h-14 min-w-0 items-center justify-between gap-3 rounded-[1.1rem] border-4 border-[#17150f] bg-[#17150f] px-4 py-3 font-mono text-xs font-bold text-[#f8f1dc] shadow-[3px_3px_0_var(--accent)] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] sm:text-sm sm:shadow-[5px_5px_0_var(--accent)]"
               >
-                <span>{siteConfig.sshCommand}</span>
-                <span className="rounded-full bg-[var(--accent)] px-3 py-1 font-display text-[0.65rem] uppercase tracking-[0.16em] text-[#17150f]">
+                <span className="min-w-0 truncate">{siteConfig.sshCommand}</span>
+                <span className="shrink-0 rounded-full bg-[var(--accent)] px-3 py-1 font-display text-[0.65rem] uppercase tracking-[0.16em] text-[#17150f]">
                   {copied ? "Copied" : "Copy"}
                 </span>
               </button>
@@ -145,7 +145,7 @@ export default function FarmCabinet() {
             { n: "02", t: "Walk away", d: "Close the lid. The simulation is pure and deterministic, so it computes exactly what grew while you were gone — down to the second." },
             { n: "03", t: "Come home richer", d: "Reconnect to a quiet little world glad to see you: ripe fields, gift parcels at the gate, and a Welcome-Back tally." },
           ].map((beat) => (
-            <div key={beat.n} className="rounded-[1.4rem] border-4 border-[#17150f] bg-[#ede4ce] p-5 shadow-[6px_6px_0_#17150f]">
+            <div key={beat.n} className="rounded-[1.4rem] border-4 border-[#17150f] bg-[#ede4ce] p-5 shadow-[4px_4px_0_#17150f] sm:shadow-[6px_6px_0_#17150f]">
               <span className="font-mono text-xs font-black uppercase tracking-[0.24em] text-[var(--accent-deep)]">{beat.n}</span>
               <h3 className="mt-1 font-display text-3xl font-black uppercase tracking-[-0.04em]">{beat.t}</h3>
               <p className="mt-2 text-sm font-bold leading-6 text-[#5c523d]">{beat.d}</p>
@@ -156,7 +156,7 @@ export default function FarmCabinet() {
 
       {/* ---- Daily Furrow ticker ---- */}
       <section aria-label="The Daily Furrow" className="relative z-10 mx-auto w-full max-w-7xl px-4 pt-12 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-[1.4rem] border-4 border-[#17150f] bg-[#17150f] text-[#f8f1dc] shadow-[8px_8px_0_var(--accent)]">
+        <div className="overflow-hidden rounded-[1.4rem] border-4 border-[#17150f] bg-[#17150f] text-[#f8f1dc] shadow-[4px_4px_0_var(--accent)] sm:shadow-[8px_8px_0_var(--accent)]">
           <div className="flex items-stretch">
             <div className="hidden shrink-0 items-center border-r-4 border-[var(--accent)] bg-[var(--accent)] px-5 font-display text-lg font-black uppercase leading-none tracking-[-0.03em] text-[#17150f] sm:flex">
               The Daily
@@ -194,7 +194,7 @@ export default function FarmCabinet() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {almanac.map((crop) => (
-            <article key={crop.id} className="overflow-hidden rounded-[1.4rem] border-4 border-[#17150f] bg-[#f8f1dc] shadow-[6px_6px_0_#17150f]">
+            <article key={crop.id} className="overflow-hidden rounded-[1.4rem] border-4 border-[#17150f] bg-[#f8f1dc] shadow-[4px_4px_0_#17150f] sm:shadow-[6px_6px_0_#17150f]">
               <div aria-hidden="true" className="h-2.5" style={{ backgroundColor: crop.accent }} />
               <div className="p-5">
                 <div className="flex items-center justify-between gap-2">
@@ -236,7 +236,7 @@ export default function FarmCabinet() {
             { t: "Live little moments", d: "Market Day, Bumper Demand and Warm Front events. Gift parcels at the gate. 1-in-100 golden harvests worth 100×. A 28-day moon that makes Moonberries shine. Lucky finds in the soil." },
             { t: "Kind by design", d: "No install, no password — your SSH key is the account. A skippable tutorial, a mercy-plant when you're broke, and a promise the game never punishes you for being away." },
           ].map((card) => (
-            <div key={card.t} className="rounded-[1.4rem] border-4 border-[#17150f] bg-[#17150f] p-5 text-[#f8f1dc] shadow-[6px_6px_0_var(--accent)]">
+            <div key={card.t} className="rounded-[1.4rem] border-4 border-[#17150f] bg-[#17150f] p-5 text-[#f8f1dc] shadow-[4px_4px_0_var(--accent)] sm:shadow-[6px_6px_0_var(--accent)]">
               <h3 className="font-display text-xl font-black uppercase tracking-[-0.03em] text-[var(--accent)]">{card.t}</h3>
               <p className="mt-2 text-sm font-bold leading-6 text-[#f8f1dc]/80">{card.d}</p>
             </div>
@@ -246,7 +246,7 @@ export default function FarmCabinet() {
 
       {/* ---- Support / CTA ---- */}
       <section className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-5 rounded-[2rem] border-4 border-[#17150f] bg-[#ede4ce] p-6 shadow-[10px_10px_0_#17150f] lg:grid-cols-[1.1fr_0.9fr] lg:p-8">
+        <div className="grid gap-5 rounded-[2rem] border-4 border-[#17150f] bg-[#ede4ce] p-6 shadow-[5px_5px_0_#17150f] sm:shadow-[10px_10px_0_#17150f] lg:grid-cols-[1.1fr_0.9fr] lg:p-8">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.24em] text-[var(--accent-deep)]">Free to play, honestly funded</p>
             <h2 className="mt-2 font-display text-4xl font-black uppercase leading-[0.9] tracking-[-0.05em] sm:text-5xl">
@@ -259,10 +259,10 @@ export default function FarmCabinet() {
             <button
               type="button"
               onClick={copyCommand}
-              className="group mt-5 flex w-full max-w-md items-center justify-between gap-4 rounded-[1.15rem] border-4 border-[#17150f] bg-[#17150f] px-5 py-4 font-mono text-sm font-bold text-[#f8f1dc] shadow-[6px_6px_0_var(--accent)] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)]"
+              className="group mt-5 flex w-full max-w-md min-w-0 items-center justify-between gap-4 rounded-[1.15rem] border-4 border-[#17150f] bg-[#17150f] px-5 py-4 font-mono text-sm font-bold text-[#f8f1dc] shadow-[4px_4px_0_var(--accent)] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] sm:shadow-[6px_6px_0_var(--accent)]"
             >
-              <span>{siteConfig.sshCommand}</span>
-              <span className="rounded-full bg-[var(--accent)] px-3 py-1 font-display text-xs uppercase tracking-[0.16em] text-[#17150f]">
+              <span className="min-w-0 truncate">{siteConfig.sshCommand}</span>
+              <span className="shrink-0 rounded-full bg-[var(--accent)] px-3 py-1 font-display text-xs uppercase tracking-[0.16em] text-[#17150f]">
                 {copied ? "Copied" : "Copy"}
               </span>
             </button>

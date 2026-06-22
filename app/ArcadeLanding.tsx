@@ -113,7 +113,7 @@ export default function ArcadeLanding() {
       <div aria-hidden="true" className="fixed inset-0 pointer-events-none opacity-[0.18] mix-blend-multiply grain" />
 
       <section className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-4 sm:px-6 lg:px-8">
-        <header className="z-10 flex items-center justify-between gap-3 rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-3 shadow-[8px_8px_0_#17150f]">
+        <header className="z-10 flex items-center justify-between gap-3 rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-3 shadow-[4px_4px_0_#17150f] sm:shadow-[8px_8px_0_#17150f]">
           <a
             href="#top"
             className="rounded-full border-2 border-[#17150f] bg-[var(--accent)] px-4 py-2 text-sm font-black uppercase tracking-[0.18em] shadow-[3px_3px_0_#17150f] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)]"
@@ -168,16 +168,16 @@ export default function ArcadeLanding() {
               <button
                 type="button"
                 onClick={copyCommand}
-                className="group flex min-h-16 items-center justify-between gap-4 rounded-[1.15rem] border-4 border-[#17150f] bg-[#17150f] px-5 py-4 font-mono text-sm font-bold text-[#f8f1dc] shadow-[7px_7px_0_var(--accent)] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)]"
+                className="group flex min-h-16 min-w-0 items-center justify-between gap-4 rounded-[1.15rem] border-4 border-[#17150f] bg-[#17150f] px-5 py-4 font-mono text-sm font-bold text-[#f8f1dc] shadow-[4px_4px_0_var(--accent)] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] sm:shadow-[7px_7px_0_var(--accent)]"
               >
-                <span>{games[0].command}</span>
-                <span className="rounded-full bg-[var(--accent)] px-3 py-1 font-display text-xs uppercase tracking-[0.16em] text-[#17150f]">
+                <span className="min-w-0 truncate">{games[0].command}</span>
+                <span className="shrink-0 rounded-full bg-[var(--accent)] px-3 py-1 font-display text-xs uppercase tracking-[0.16em] text-[#17150f]">
                   {copied ? "Copied" : "Copy"}
                 </span>
               </button>
               <a
                 href="#coin-slot"
-                className="flex min-h-16 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[var(--accent-deep)] px-6 py-4 text-sm font-black uppercase tracking-[0.18em] shadow-[7px_7px_0_#17150f] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
+                className="flex min-h-16 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[var(--accent-deep)] px-6 py-4 text-sm font-black uppercase tracking-[0.18em] shadow-[4px_4px_0_#17150f] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] sm:shadow-[7px_7px_0_#17150f]"
               >
                 Support costs
               </a>
@@ -185,9 +185,9 @@ export default function ArcadeLanding() {
           </div>
 
           <div className="relative z-10 mx-auto w-full max-w-xl">
-            <div className="absolute -left-4 top-10 h-24 w-7 rounded-l-2xl border-4 border-r-0 border-[#17150f] bg-[var(--accent-deep)] shadow-[5px_5px_0_#17150f]" />
-            <div className="absolute -right-4 top-24 h-32 w-7 rounded-r-2xl border-4 border-l-0 border-[#17150f] bg-[var(--accent)] shadow-[5px_5px_0_#17150f]" />
-            <div className="rounded-[2.3rem] border-4 border-[#17150f] bg-[#4b4a42] p-4 shadow-[14px_14px_0_#17150f] sm:p-6">
+            <div className="absolute -left-4 top-10 hidden h-24 w-7 rounded-l-2xl border-4 border-r-0 border-[#17150f] bg-[var(--accent-deep)] shadow-[5px_5px_0_#17150f] lg:block" />
+            <div className="absolute -right-4 top-24 hidden h-32 w-7 rounded-r-2xl border-4 border-l-0 border-[#17150f] bg-[var(--accent)] shadow-[5px_5px_0_#17150f] lg:block" />
+            <div className="rounded-[2.3rem] border-4 border-[#17150f] bg-[#4b4a42] p-4 shadow-[6px_6px_0_#17150f] sm:p-6 sm:shadow-[14px_14px_0_#17150f]">
               <div
                 className="cabinet-stage rounded-[1.7rem] border-4 border-[#17150f] bg-[#f8f1dc] p-4 shadow-inner"
                 style={{ "--cabinet-accent": cabinetAccent } as CSSProperties}
@@ -211,7 +211,7 @@ export default function ArcadeLanding() {
                     <p className="mb-2 font-mono text-xs uppercase tracking-[0.24em] text-[var(--cabinet-accent)]">
                       {screen.presents}
                     </p>
-                    <h2 className="font-display text-6xl font-black uppercase leading-none tracking-[-0.08em] sm:text-8xl">
+                    <h2 className="font-display text-5xl font-black uppercase leading-none tracking-[-0.08em] sm:text-7xl lg:text-8xl">
                       {screen.title}
                     </h2>
                     <div className="mt-8 grid grid-cols-4 gap-2">
@@ -267,7 +267,7 @@ export default function ArcadeLanding() {
         aria-labelledby="cabinet-row"
         className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 lg:px-8"
       >
-        <div className="rounded-[2rem] border-4 border-[#17150f] bg-[#ede4ce] p-4 shadow-[10px_10px_0_#17150f] sm:p-6">
+        <div className="rounded-[2rem] border-4 border-[#17150f] bg-[#ede4ce] p-4 shadow-[5px_5px_0_#17150f] sm:p-6 sm:shadow-[10px_10px_0_#17150f]">
           <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.24em] text-[var(--accent-deep)]">Terminal UI games</p>
@@ -282,7 +282,7 @@ export default function ArcadeLanding() {
           </div>
 
           <div
-            className="grid gap-4 overflow-x-auto pb-3 md:grid-cols-3 md:overflow-visible"
+            className="-mx-1 grid snap-x snap-mandatory auto-cols-[min(100%,16rem)] grid-flow-col gap-4 overflow-x-auto px-1 pb-3 md:mx-0 md:grid-cols-3 md:grid-flow-row md:overflow-visible md:px-0"
             tabIndex={0}
             onKeyDown={handleKeyDown}
             aria-label="Choose an arcade cabinet"
@@ -290,7 +290,7 @@ export default function ArcadeLanding() {
             {games.map((game, index) => {
               const active = selectedGame === index;
               const cardBase =
-                "min-w-[16rem] snap-center rounded-[1.4rem] border-4 border-[#17150f] p-4 text-left shadow-[6px_6px_0_#17150f] transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)]";
+                "min-w-[16rem] snap-center rounded-[1.4rem] border-4 border-[#17150f] p-4 text-left shadow-[4px_4px_0_#17150f] transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] sm:shadow-[6px_6px_0_#17150f]";
 
               if (active) {
                 return (
@@ -336,7 +336,7 @@ export default function ArcadeLanding() {
         aria-labelledby="coin-heading"
         className="relative z-10 mx-auto grid w-full max-w-7xl gap-6 px-4 pb-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8"
       >
-        <div className="rounded-[2rem] border-4 border-[#17150f] bg-[#17150f] p-6 text-[#f8f1dc] shadow-[10px_10px_0_var(--accent)]">
+        <div className="rounded-[2rem] border-4 border-[#17150f] bg-[#17150f] p-6 text-[#f8f1dc] shadow-[5px_5px_0_var(--accent)] sm:shadow-[10px_10px_0_var(--accent)]">
           <p className="text-xs font-black uppercase tracking-[0.24em] text-[var(--accent)]">Free games, transparent costs</p>
           <h2 id="coin-heading" className="mt-3 font-display text-5xl font-black uppercase leading-none tracking-[-0.06em] sm:text-7xl">
             Insert coin.
@@ -358,7 +358,7 @@ export default function ArcadeLanding() {
           </div>
         </div>
 
-        <div className="rounded-[2rem] border-4 border-[#17150f] bg-[#ede4ce] p-5 shadow-[10px_10px_0_#17150f]">
+        <div className="rounded-[2rem] border-4 border-[#17150f] bg-[#ede4ce] p-5 shadow-[5px_5px_0_#17150f] sm:shadow-[10px_10px_0_#17150f]">
           <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-center">
             <div>
               <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-[#5c523d]">

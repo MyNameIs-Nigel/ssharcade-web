@@ -21,7 +21,7 @@ export default function NotFound() {
       <div aria-hidden="true" className="fixed inset-0 pointer-events-none opacity-[0.18] mix-blend-multiply grain" />
 
       <header className="relative z-10 mx-auto w-full max-w-3xl px-4 pt-4 sm:px-6">
-        <div className="flex items-center justify-between gap-3 rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-3 shadow-[8px_8px_0_#17150f]">
+        <div className="flex items-center justify-between gap-3 rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-3 shadow-[4px_4px_0_#17150f] sm:shadow-[8px_8px_0_#17150f]">
           <Link
             href="/"
             className="flex items-center gap-2 rounded-full border-2 border-[#17150f] bg-[#17150f] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[var(--accent)] shadow-[3px_3px_0_var(--accent)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)]"
@@ -43,7 +43,7 @@ export default function NotFound() {
           <div className="absolute -left-3 top-10 hidden h-24 w-7 rounded-l-2xl border-4 border-r-0 border-[#17150f] bg-[var(--accent-deep)] shadow-[5px_5px_0_#17150f] sm:block" />
           <div className="absolute -right-3 top-20 hidden h-28 w-7 rounded-r-2xl border-4 border-l-0 border-[#17150f] bg-[var(--accent)] shadow-[5px_5px_0_#17150f] sm:block" />
 
-          <div className="rounded-[2.3rem] border-4 border-[#17150f] bg-[#4b4a42] p-4 shadow-[14px_14px_0_#17150f] sm:p-6">
+          <div className="rounded-[2.3rem] border-4 border-[#17150f] bg-[#4b4a42] p-4 shadow-[6px_6px_0_#17150f] sm:p-6 sm:shadow-[14px_14px_0_#17150f]">
             <div className="cabinet-stage rounded-[1.7rem] border-4 border-[#17150f] bg-[#f8f1dc] p-4">
               <div className="mb-4 flex items-center justify-between">
                 <span className="rounded-full bg-[#17150f] px-3 py-1 text-xs font-black uppercase tracking-[0.22em] text-[var(--cabinet-accent)]">
@@ -74,7 +74,7 @@ export default function NotFound() {
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 <Link
                   href="/"
-                  className="flex min-h-14 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[var(--accent-deep)] px-5 py-3 text-center text-sm font-black uppercase tracking-[0.16em] shadow-[5px_5px_0_#17150f] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
+                  className="flex min-h-14 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[var(--accent-deep)] px-5 py-3 text-center text-sm font-black uppercase tracking-[0.16em] shadow-[3px_3px_0_#17150f] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] sm:shadow-[5px_5px_0_#17150f]"
                 >
                   Return to lobby
                 </Link>
@@ -82,7 +82,7 @@ export default function NotFound() {
                   <Link
                     key={cabinet.slug}
                     href={`/${cabinet.slug}`}
-                    className="flex min-h-14 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[#17150f] px-5 py-3 text-center text-sm font-black uppercase tracking-[0.16em] text-[var(--accent)] shadow-[5px_5px_0_var(--accent)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)]"
+                    className="flex min-h-14 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[#17150f] px-5 py-3 text-center text-sm font-black uppercase tracking-[0.16em] text-[var(--accent)] shadow-[3px_3px_0_var(--accent)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] sm:shadow-[5px_5px_0_var(--accent)]"
                   >
                     Play {cabinet.title}
                   </Link>
