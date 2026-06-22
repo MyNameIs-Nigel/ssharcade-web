@@ -121,6 +121,13 @@ export default function ArcadeLanding() {
             SSH-Arcade
           </a>
           <nav aria-label="Cabinets" className="flex items-center gap-2">
+            <span
+              className={`hidden font-mono text-[0.7rem] font-black uppercase tracking-[0.18em] text-[#5c523d] sm:inline ${
+                powered ? "opacity-60" : ""
+              }`}
+            >
+              {powered ? "Cabinet" : "Select ▸"}
+            </span>
             {games.map((game, index) => {
               const active = selectedGame === index;
               return (
@@ -128,11 +135,11 @@ export default function ArcadeLanding() {
                   key={game.title}
                   type="button"
                   onClick={() => selectGame(index)}
-                  aria-label={`Preview ${game.title}`}
+                  aria-label={`Select the ${game.title} cabinet`}
                   aria-pressed={active}
                   className={`group flex h-10 items-center overflow-hidden rounded-full border-2 border-[#17150f] shadow-[2px_2px_0_#17150f] transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] ${
                     active ? "-translate-y-0.5" : ""
-                  }`}
+                  } ${!powered ? "hint-pill" : ""}`}
                   style={{ backgroundColor: game.accent }}
                 >
                   <span className="grid h-10 w-10 shrink-0 place-items-center font-display text-base font-black text-[#17150f]">
@@ -185,8 +192,6 @@ export default function ArcadeLanding() {
           </div>
 
           <div className="relative z-10 mx-auto w-full max-w-xl">
-            <div className="absolute -left-4 top-10 hidden h-24 w-7 rounded-l-2xl border-4 border-r-0 border-[#17150f] bg-[var(--accent-deep)] shadow-[5px_5px_0_#17150f] lg:block" />
-            <div className="absolute -right-4 top-24 hidden h-32 w-7 rounded-r-2xl border-4 border-l-0 border-[#17150f] bg-[var(--accent)] shadow-[5px_5px_0_#17150f] lg:block" />
             <div className="rounded-[2.3rem] border-4 border-[#17150f] bg-[#4b4a42] p-4 shadow-[6px_6px_0_#17150f] sm:p-6 sm:shadow-[14px_14px_0_#17150f]">
               <div
                 className="cabinet-stage rounded-[1.7rem] border-4 border-[#17150f] bg-[#f8f1dc] p-4 shadow-inner"
@@ -203,30 +208,51 @@ export default function ArcadeLanding() {
 
                 <div
                   className={`cabinet-screen relative overflow-hidden rounded-[1.1rem] border-4 border-[#17150f] bg-[#17150f] p-4 text-[#f8f1dc] [container-type:inline-size] ${
-                    powered ? "" : "is-off"
+                    powered ? "" : "is-standby"
                   }`}
                 >
-                  {powered && <div className="scanline" />}
-                  <div className="relative z-10">
-                    <p className="mb-2 font-mono text-xs uppercase tracking-[0.24em] text-[var(--cabinet-accent)]">
-                      {screen.presents}
-                    </p>
-                    <h2 className="font-display text-[clamp(2rem,21cqw,7rem)] font-black uppercase leading-none tracking-[-0.08em] [overflow-wrap:normal] [word-break:keep-all]">
-                      {screen.title}
-                    </h2>
-                    <div className="mt-8 grid grid-cols-4 gap-2">
-                      {Array.from({ length: 16 }).map((_, index) => (
-                        <span
-                          key={index}
-                          className="h-8 rounded-md border-2 border-[#f8f1dc]/25 bg-[var(--cabinet-accent)]/80 shadow-[inset_0_-8px_0_rgba(0,0,0,0.22)]"
-                          style={{ opacity: index % 5 === 0 ? 0.35 : 1 }}
-                        />
-                      ))}
-                    </div>
-                    <p className="mt-6 max-w-sm font-mono text-sm leading-6 text-[#f8f1dc]/85">
-                      {screen.summary}
-                    </p>
-                  </div>
+                  {powered ? (
+                    <>
+                      <div className="scanline" />
+                      <div className="relative z-10">
+                        <p className="mb-2 font-mono text-xs uppercase tracking-[0.24em] text-[var(--cabinet-accent)]">
+                          {screen.presents}
+                        </p>
+                        <h2 className="font-display text-[clamp(2rem,21cqw,7rem)] font-black uppercase leading-none tracking-[-0.08em] [overflow-wrap:normal] [word-break:keep-all]">
+                          {screen.title}
+                        </h2>
+                        <div className="mt-8 grid grid-cols-4 gap-2">
+                          {Array.from({ length: 16 }).map((_, index) => (
+                            <span
+                              key={index}
+                              className="h-8 rounded-md border-2 border-[#f8f1dc]/25 bg-[var(--cabinet-accent)]/80 shadow-[inset_0_-8px_0_rgba(0,0,0,0.22)]"
+                              style={{ opacity: index % 5 === 0 ? 0.35 : 1 }}
+                            />
+                          ))}
+                        </div>
+                        <p className="mt-6 max-w-sm font-mono text-sm leading-6 text-[#f8f1dc]/85">
+                          {screen.summary}
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => selectGame(0)}
+                      aria-label="Press start to power on the Farm cabinet"
+                      className="start-pulse relative z-10 flex w-full flex-col items-center justify-center gap-3 rounded-[0.85rem] border-4 border-[var(--accent)] bg-[var(--accent)]/10 px-5 py-12 text-center transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
+                    >
+                      <span className="font-display text-[clamp(2.25rem,18cqw,5rem)] font-black uppercase leading-none tracking-[-0.06em] text-[var(--accent)]">
+                        ▶ Press Start
+                      </span>
+                      <span className="blink font-mono text-xs font-black uppercase tracking-[0.28em] text-[#f8f1dc]">
+                        Insert coin to boot
+                      </span>
+                      <span className="mt-1 max-w-xs font-mono text-[0.72rem] leading-5 text-[#f8f1dc]/70">
+                        Powers on Farm — or pick a cabinet from the row below, the navbar, or the LT / RT controls.
+                      </span>
+                    </button>
+                  )}
                 </div>
 
                 <div className="mt-4 grid grid-cols-[1fr_auto] items-end gap-4">
@@ -324,6 +350,13 @@ export default function ArcadeLanding() {
                   </div>
                   <p className="font-mono text-xs font-black uppercase tracking-[0.18em] opacity-70">{game.status}</p>
                   <p className="mt-3 text-sm font-bold leading-6 opacity-85">{game.summary}</p>
+                  <span
+                    className={`mt-4 inline-flex items-center gap-1 rounded-full border-2 border-[#17150f] bg-[var(--accent)] px-3 py-1 font-mono text-[0.7rem] font-black uppercase tracking-[0.16em] text-[#17150f] ${
+                      !powered ? "hint-tag" : ""
+                    }`}
+                  >
+                    ▸ Tap to power on
+                  </span>
                 </button>
               );
             })}

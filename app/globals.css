@@ -84,9 +84,10 @@ html {
     inset 0 0 48px color-mix(in srgb, var(--cabinet-accent) 45%, transparent);
 }
 
-/* Powered-down look while no cabinet is selected. */
-.cabinet-screen.is-off {
-  filter: grayscale(0.55) brightness(0.6);
+/* Powered-down look while no cabinet is selected. The screen stays dark but
+   the PRESS START prompt keeps its full-color glow to invite a first pick. */
+.cabinet-screen.is-standby {
+  filter: brightness(0.92);
 }
 
 .cabinet-screen::after {
@@ -146,6 +147,66 @@ html {
 
   to {
     transform: translateY(260%);
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * First-visit selection nudges
+ * These signal which controls power on a cabinet. They run only while
+ * nothing is selected and are toggled off in JSX after the first pick.
+ * ------------------------------------------------------------------ */
+
+/* Primary nudge: the standby PRESS START prompt glows on the dark CRT. */
+.start-pulse {
+  animation: enterPulse 1.5s ease-out infinite;
+}
+
+/* Secondary nudge: navbar selector pills keep their offset shadow plus a
+   pulsing ink ring so they read as "pick one of these". */
+.hint-pill {
+  animation: hintPill 1.9s ease-out infinite;
+}
+
+@keyframes hintPill {
+  0% {
+    box-shadow: 2px 2px 0 #17150f, 0 0 0 0 rgba(23, 21, 15, 0.5);
+  }
+  70% {
+    box-shadow: 2px 2px 0 #17150f, 0 0 0 9px rgba(23, 21, 15, 0);
+  }
+  100% {
+    box-shadow: 2px 2px 0 #17150f, 0 0 0 0 rgba(23, 21, 15, 0);
+  }
+}
+
+/* Tertiary nudge: the "tap to power on" tag on inactive cabinet cards. */
+.hint-tag {
+  animation: hintTag 1.6s ease-in-out infinite;
+}
+
+@keyframes hintTag {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Blinking "insert coin" line under PRESS START. */
+.blink {
+  animation: blink 1.1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.25;
   }
 }
 
