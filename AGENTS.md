@@ -64,10 +64,15 @@ the dev server, delete `.next`, and restart — it is not a code bug.
 - **`next/og` / satori** (OG + apple icons): multi-child flex needs explicit
   `display: flex`; use `marginRight` not `gap`. Works with the built-in font —
   do not add custom fonts unless needed.
-- **Unbuilt routes are intentional.** The cabinet routes (`/farm`, `/moon-mine`,
-  `/packet-derby`) and pages (`/docs`, `/donate`, `/contact`) are listed in the
-  sitemap and `llms.txt` but not built yet — they 404 by design. Add them to
-  `app/site.ts` first if you build them.
+- **Unbuilt routes are intentional.** The cabinet routes (`/moon-mine`,
+  `/packet-derby`) and pages (`/docs`, `/donate`) are listed in the sitemap and
+  `llms.txt` but not built yet — they 404 by design. Add them to `app/site.ts`
+  first if you build them. `/farm` and `/contact` are built.
+- **`/contact` is the operator booth.** A CRT-housed multi-step "operator
+  terminal" (`app/contact/OperatorTerminal.tsx`) collects callsign → reply
+  channel → message and POSTs to the `app/api/contact/route.ts` route handler,
+  which forwards a Discord embed to the `DISCORD_WEBHOOK` env var. The
+  validation contract lives in `app/contact/contact.{types,constants,validation}.ts`.
 <!-- rtk-instructions v2 -->
 # RTK (Rust Token Killer) - Token-Optimized Commands
 
