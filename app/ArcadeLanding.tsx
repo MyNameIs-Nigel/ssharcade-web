@@ -167,8 +167,9 @@ export default function ArcadeLanding() {
               Insert coin. Start farm.
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#433c2d] sm:text-xl">
-              A terminal-native arcade where every cabinet is an SSH game. Farm is the first machine on the floor:
-              tactile, patient, free to play, and funded by honest spare-change support.
+              A terminal-native arcade where every cabinet is an SSH game — all behind one door.{" "}
+              <span className="font-mono">{siteConfig.sshCommand}</span> drops you on the floor; Farm is the first
+              machine running.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-[1fr_auto]">

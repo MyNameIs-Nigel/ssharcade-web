@@ -7,8 +7,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # SSH-Arcade — web front
 
 The landing page for **[ssharcade.dev](https://ssharcade.dev)** — a retro-future
-arcade where every cabinet is a game you play over SSH. Farm is the first cabinet
-on the floor: `ssh farm.ssharcade.dev`.
+arcade where every cabinet is a game you play over SSH. One address opens the whole
+floor: `ssh play.ssharcade.dev` drops you at the arcade menu to pick a game. Farm is
+the first cabinet running.
 
 ## Stack
 

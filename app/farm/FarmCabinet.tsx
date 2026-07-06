@@ -119,8 +119,8 @@ export default function FarmCabinet() {
             <div className="mt-4 grid gap-3 rounded-[1.4rem] border-4 border-[#17150f] bg-[#ede4ce] p-4 sm:grid-cols-[1fr_auto] sm:items-center">
               <p className="font-mono text-[0.7rem] leading-5 text-[#5c523d] sm:text-xs">
                 This isn&apos;t a web game — it&apos;s a recording of the real thing, running on a sped-up clock. Crops
-                grow, ripen and re-sow themselves; coins tick up. To actually play, you copy one command into any
-                terminal. That&apos;s the whole install.
+                grow, ripen and re-sow themselves; coins tick up. To actually play, copy one command into any
+                terminal — it opens the arcade menu, and Farm is one keypress away. That&apos;s the whole install.
               </p>
               <button
                 type="button"

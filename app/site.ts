@@ -11,10 +11,10 @@ export const siteConfig = {
   url: "https://ssharcade.dev",
   title: "SSH-Arcade — Terminal games in arcade cabinets",
   description:
-    "A retro-future arcade for SSH-native terminal games. Insert coin, copy the SSH command, and play — Farm is the first cabinet on the floor.",
+    "A retro-future arcade for SSH-native terminal games. One address opens the whole floor — ssh play.ssharcade.dev, pick a cabinet, and play. Farm is the first machine up.",
   tagline: "Insert coin. Start farm.",
   email: "hello@ssharcade.dev",
-  sshCommand: "ssh farm.ssharcade.dev",
+  sshCommand: "ssh play.ssharcade.dev",
   ogImageAlt: "SSH-Arcade — terminal games in arcade cabinets",
   locale: "en_US",
   // Brand colors (mirrors globals.css)
@@ -27,9 +27,9 @@ export const siteConfig = {
  * (e.g. /farm). These pages are not built yet — only listed for crawlers.
  */
 export const cabinets = [
-  { slug: "farm", title: "Farm", live: true, host: "farm.ssharcade.dev" },
-  { slug: "moon-mine", title: "Moon Mine", live: false, host: "" },
-  { slug: "packet-derby", title: "Packet Derby", live: false, host: "" },
+  { slug: "farm", title: "Farm", live: true },
+  { slug: "moon-mine", title: "Moon Mine", live: false },
+  { slug: "packet-derby", title: "Packet Derby", live: false },
 ] as const;
 
 /** Standalone pages (not cabinets) that belong in the sitemap. */
