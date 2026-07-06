@@ -43,13 +43,31 @@
   transition: --cabinet-accent 600ms ease;
 }
 
-/* Faint accent wash + the dotted engineering grid behind everything. */
+/* Soft accent wash; halftone dots live on .grain only. */
 .arcade-backdrop {
-  background-image:
-    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 28%),
-    linear-gradient(90deg, rgba(23, 21, 15, 0.06) 1px, transparent 1px),
-    linear-gradient(rgba(23, 21, 15, 0.05) 1px, transparent 1px);
-  background-size: auto, 42px 42px, 42px 42px;
+  background-image: radial-gradient(
+    ellipse 92% 74% at 16% 20%,
+    color-mix(in srgb, var(--accent) 26%, transparent),
+    transparent 64%
+  );
+}
+
+/* Single ben-day grid — shading comes from the mask, not stacked dot layers. */
+.grain {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent) 16%, #17150f) 1.4px,
+    transparent 1.4px
+  );
+  background-size: 12px 12px;
+  -webkit-mask-image:
+    radial-gradient(ellipse 105% 88% at 50% 42%, transparent 20%, #000 54%, transparent 84%),
+    radial-gradient(ellipse 52% 46% at 86% 90%, #000 12%, transparent 64%);
+  mask-image:
+    radial-gradient(ellipse 105% 88% at 50% 42%, transparent 20%, #000 54%, transparent 84%),
+    radial-gradient(ellipse 52% 46% at 86% 90%, #000 12%, transparent 64%);
+  -webkit-mask-composite: source-over;
+  mask-composite: add;
 }
 
 body {
@@ -72,11 +90,6 @@ html {
   max-width: 100%;
 }
 
-.grain {
-  background-image:
-    linear-gradient(115deg, rgba(255, 255, 255, 0.28), transparent 42%),
-    repeating-radial-gradient(circle at 20% 30%, rgba(23, 21, 15, 0.55) 0 1px, transparent 1px 4px);
-}
 
 .cabinet-screen {
   box-shadow:

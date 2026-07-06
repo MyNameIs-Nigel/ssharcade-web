@@ -18,7 +18,7 @@ export default function NotFound() {
       style={{ "--accent": siteConfig.themeColor, "--cabinet-accent": "#7c7669" } as CSSProperties}
     >
       <div aria-hidden="true" className="arcade-backdrop fixed inset-0 pointer-events-none" />
-      <div aria-hidden="true" className="fixed inset-0 pointer-events-none opacity-[0.18] mix-blend-multiply grain" />
+      <div aria-hidden="true" className="fixed inset-0 pointer-events-none opacity-[0.34] mix-blend-multiply grain" />
 
       <header className="relative z-10 mx-auto w-full max-w-3xl px-4 pt-4 sm:px-6">
         <div className="flex items-center justify-between gap-3 rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-3 shadow-[4px_4px_0_#17150f] sm:shadow-[8px_8px_0_#17150f]">

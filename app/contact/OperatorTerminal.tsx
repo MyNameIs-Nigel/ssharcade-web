@@ -499,7 +499,7 @@ export default function OperatorTerminal() {
       }
     >
       <div aria-hidden="true" className="arcade-backdrop fixed inset-0 pointer-events-none" />
-      <div aria-hidden="true" className="fixed inset-0 pointer-events-none opacity-[0.18] mix-blend-multiply grain" />
+      <div aria-hidden="true" className="fixed inset-0 pointer-events-none opacity-[0.34] mix-blend-multiply grain" />
 
       {/* ---- Status bar ---- */}
       <header className="relative z-10 mx-auto w-full max-w-5xl px-4 pt-4 sm:px-6 lg:px-8">
