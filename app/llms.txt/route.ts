@@ -10,7 +10,7 @@ export function GET() {
     .map((cabinet) => {
       const route = `${url}/${cabinet.slug}`;
       const note = cabinet.live
-        ? `live now — play with \`ssh ${cabinet.host}\``
+        ? `live now — \`${siteConfig.sshCommand}\` and pick ${cabinet.title} from the arcade menu`
         : "in development, not yet playable";
       return `- [${cabinet.title}](${route}): ${note}`;
     })
@@ -24,7 +24,7 @@ export function GET() {
 
 > ${description}
 
-${name} is a retro-future arcade where every cabinet is a game you play over SSH — no install, no client, just a terminal. Farm is the first playable cabinet; more are warming up. The arcade is free to play and funded by optional supporter donations.
+${name} is a retro-future arcade where every cabinet is a game you play over SSH — no install, no client, just a terminal. Every cabinet lives behind one address: \`${siteConfig.sshCommand}\` drops you at the arcade menu to pick a game. Farm is the first playable cabinet; more are warming up. The arcade is free to play and funded by optional supporter donations.
 
 ## Cabinets
 
