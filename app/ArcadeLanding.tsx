@@ -113,14 +113,14 @@ export default function ArcadeLanding() {
       <div aria-hidden="true" className="fixed inset-0 pointer-events-none opacity-[0.34] mix-blend-multiply grain" />
 
       <section className="relative mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-4 sm:px-6 lg:px-8">
-        <header className="z-10 flex items-center justify-between gap-3 rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-3 shadow-[4px_4px_0_#17150f] sm:shadow-[8px_8px_0_#17150f]">
+        <header className="z-10 flex items-center justify-between gap-2 rounded-[1.5rem] border-4 border-[#17150f] bg-[#ede4ce] p-2.5 shadow-[4px_4px_0_#17150f] sm:gap-3 sm:p-3 sm:shadow-[8px_8px_0_#17150f]">
           <a
             href="#top"
-            className="rounded-full border-2 border-[#17150f] bg-[var(--accent)] px-4 py-2 text-sm font-black uppercase tracking-[0.18em] shadow-[3px_3px_0_#17150f] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)]"
+            className="min-w-0 rounded-full border-2 border-[#17150f] bg-[var(--accent)] px-3 py-2 text-xs font-black uppercase tracking-[0.12em] shadow-[3px_3px_0_#17150f] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] sm:px-4 sm:text-sm sm:tracking-[0.18em]"
           >
             SSH-Arcade
           </a>
-          <nav aria-label="Cabinets" className="flex items-center gap-2">
+          <nav aria-label="Cabinets" className="flex shrink-0 items-center gap-1.5 sm:gap-2">
             <span
               className={`hidden font-mono text-[0.7rem] font-black uppercase tracking-[0.18em] text-[#5c523d] sm:inline ${
                 powered ? "opacity-60" : ""
@@ -137,17 +137,17 @@ export default function ArcadeLanding() {
                   onClick={() => selectGame(index)}
                   aria-label={`Select the ${game.title} cabinet`}
                   aria-pressed={active}
-                  className={`group flex h-10 items-center overflow-hidden rounded-full border-2 border-[#17150f] shadow-[2px_2px_0_#17150f] transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] ${
+                  className={`group flex h-11 items-center overflow-hidden rounded-full border-2 border-[#17150f] shadow-[2px_2px_0_#17150f] transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-deep)] ${
                     active ? "-translate-y-0.5" : ""
                   } ${!powered ? "hint-pill" : ""}`}
                   style={{ backgroundColor: game.accent }}
                 >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center font-display text-base font-black text-[#17150f]">
+                  <span className="grid h-11 w-10 shrink-0 place-items-center font-display text-base font-black text-[#17150f] sm:w-11">
                     {game.title.charAt(0)}
                   </span>
                   <span
                     className={`overflow-hidden whitespace-nowrap font-display text-sm font-black uppercase tracking-[0.08em] text-[#17150f] transition-all duration-300 ease-out ${
-                      active ? "max-w-[9rem] pr-4" : "max-w-0 group-hover:max-w-[9rem] group-hover:pr-4"
+                      active ? "max-w-0 sm:max-w-[9rem] sm:pr-4" : "max-w-0 sm:group-hover:max-w-[9rem] sm:group-hover:pr-4"
                     }`}
                   >
                     {game.title}
@@ -163,7 +163,7 @@ export default function ArcadeLanding() {
             <p className="mb-4 inline-flex rounded-full border-2 border-[#17150f] bg-[#17150f] px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-[var(--accent)]">
               Arcade OS / boot slot 01
             </p>
-            <h1 className="max-w-4xl text-balance font-display text-[clamp(3.25rem,11vw,8.8rem)] font-black uppercase leading-[0.78] tracking-[-0.08em]">
+            <h1 className="max-w-4xl text-balance font-display text-[clamp(2.65rem,11vw,8.8rem)] font-black uppercase leading-[0.88] tracking-[-0.055em] sm:leading-[0.8] sm:tracking-[-0.08em]">
               Insert coin. Start farm.
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#433c2d] sm:text-xl">
@@ -278,10 +278,10 @@ export default function ArcadeLanding() {
                       </button>
                     </div>
                   </div>
-                  <div className="rounded-xl border-4 border-[#17150f] bg-[#17150f] px-4 py-3 text-right font-mono text-xs font-bold uppercase text-[var(--cabinet-accent)]">
+                  <div className="min-w-0 max-w-[11rem] rounded-xl border-4 border-[#17150f] bg-[#17150f] px-3 py-3 text-right font-mono text-xs font-bold uppercase text-[var(--cabinet-accent)] sm:max-w-none sm:px-4">
                     {screen.meter}
                     <br />
-                    <span className="text-[#f8f1dc]">{screen.command}</span>
+                    <span className="block truncate text-[#f8f1dc]">{screen.command}</span>
                   </div>
                 </div>
               </div>

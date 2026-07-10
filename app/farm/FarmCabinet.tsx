@@ -62,7 +62,7 @@ export default function FarmCabinet() {
         <p className="mb-4 inline-flex rounded-full border-2 border-[#17150f] bg-[#17150f] px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-[var(--accent)]">
           Cabinet F-01 / now playing
         </p>
-        <h1 className="max-w-5xl text-balance font-display text-[clamp(2.75rem,9vw,7rem)] font-black uppercase leading-[0.82] tracking-[-0.07em]">
+        <h1 className="max-w-5xl text-balance font-display text-[clamp(2.5rem,9vw,7rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] sm:leading-[0.84] sm:tracking-[-0.07em]">
           Plant it. Walk away. Come home richer.
         </h1>
         <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#433c2d] sm:text-xl">
@@ -98,7 +98,7 @@ export default function FarmCabinet() {
 
           <div className="rounded-[2.3rem] border-4 border-[#17150f] bg-[#4b4a42] p-3 shadow-[6px_6px_0_#17150f] sm:p-5 sm:shadow-[14px_14px_0_#17150f]">
             {/* Marquee */}
-            <div className="mb-3 flex items-center justify-between gap-2 rounded-[1.2rem] border-4 border-[#17150f] bg-[#17150f] px-4 py-2 text-[var(--accent)]">
+            <div className="mb-3 flex flex-col items-start justify-between gap-1 rounded-[1.2rem] border-4 border-[#17150f] bg-[#17150f] px-4 py-2 text-[var(--accent)] sm:flex-row sm:items-center sm:gap-2">
               <span className="font-display text-lg font-black uppercase tracking-[0.12em] sm:text-2xl">★ FARM ★</span>
               <span className="font-mono text-[0.6rem] font-black uppercase tracking-[0.2em] text-[#f8f1dc]/70 sm:text-xs">
                 Live screen · the real terminal UI

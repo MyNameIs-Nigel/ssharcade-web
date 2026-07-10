@@ -471,7 +471,7 @@ html {
   color: #a9bdd9;
   background: #202530;
   font-family: var(--font-mono);
-  font-size: clamp(0.42rem, 1.05vw, 0.66rem);
+  font-size: clamp(0.625rem, 1.05vw, 0.66rem);
   line-height: 1.36;
 }
 
@@ -485,7 +485,7 @@ html {
   mix-blend-mode: multiply;
 }
 
-.moon-terminal-screen { min-height: 24rem; padding: 0.75rem; }
+.moon-terminal-screen { position: relative; min-height: 24rem; padding: 0.75rem 0.75rem 3.5rem; }
 
 .moon-terminal-header {
   display: flex;
@@ -510,14 +510,14 @@ html {
 .moon-panel { min-width: 0; border: 1px solid var(--accent); padding: 0.55rem; }
 .moon-panel > b, .moon-screen-title { color: #d8e5fa; font-weight: 800; }
 .moon-panel ul { margin: 0.4rem 0; padding: 0; list-style: none; }
-.moon-panel li { display: flex; justify-content: space-between; gap: 0.25rem; }
+.moon-panel li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 0.5rem; }
 .moon-panel li em { color: #ff8e74; font-style: normal; }
 .moon-panel .selected, .moon-scan-list .selected { background: color-mix(in srgb, var(--accent) 55%, transparent); color: #ffffff; }
 .moon-panel .selected strong { color: #73e6ab; }
 .moon-panel p { margin: 0.7rem 0 0; color: #8197b6; }
 
 .moon-service-list, .moon-upgrade-list { margin: 0.45rem 0; }
-.moon-service-list div, .moon-upgrade-list div { display: flex; justify-content: space-between; gap: 0.3rem; }
+.moon-service-list div, .moon-upgrade-list div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.2rem 0.5rem; }
 .moon-service-list dd, .moon-upgrade-list dd { margin: 0; color: #d7d1c3; }
 .moon-highlight { color: #67e7cf !important; }
 .moon-ship-stats strong { display: block; margin-top: 1.5rem; color: #f6da5d; }
@@ -533,6 +533,8 @@ html {
   padding-top: 0.55rem;
   color: #86a8cd;
   font-weight: 800;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .moon-terminal-log { bottom: 2rem; min-height: 4rem; }
@@ -555,15 +557,85 @@ html {
 .moon-summary { margin-top: 0.8rem; border: 1px solid #ff6e78; padding: 0.7rem; }.moon-summary > b, .moon-summary h3 { color: #ff797f; }.moon-summary h3 { margin: 0.15rem 0; font-size: 1.1em; }.moon-summary p { margin: 0.4rem 0; }.moon-summary dl { margin: 0.9rem 0; }.moon-summary dl div { display: flex; gap: 0.5rem; }.moon-summary dt { color: #ebdd74; font-weight: 800; }.moon-summary dd { margin: 0; color: #d8e5fa; }.moon-summary .moon-actions { color: #7ee8e0; font-weight: 800; }
 
 @media (max-width: 1023px) {
-  .moon-terminal { font-size: clamp(0.48rem, 1.6vw, 0.68rem); }
-  .moon-terminal-screen { min-height: 22rem; }
+  .moon-story-section {
+    min-height: auto;
+    padding: clamp(2.5rem, 7vh, 4.5rem) 0;
+  }
+
+  .moon-terminal { font-size: clamp(0.625rem, 1.8vw, 0.68rem); }
+  .moon-terminal-screen { min-height: 25rem; }
+}
+
+@media (max-width: 640px) {
+  .moon-cabinet-frame { padding: 0.4rem; }
+
+  .moon-cabinet-marquee,
+  .moon-cabinet-controls {
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+  }
+
+  .moon-terminal {
+    min-height: 34rem;
+    font-size: clamp(0.625rem, 2.8vw, 0.68rem);
+  }
+
+  .moon-terminal-screen {
+    min-height: 34rem;
+    padding: 0.6rem 0.6rem 4.25rem;
+  }
+
+  .moon-terminal-header {
+    gap: 0.3rem 0.55rem;
+  }
+
+  .moon-dock-grid,
+  .moon-shipyard-grid,
+  .moon-mining-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .moon-scan-map {
+    height: 6.5rem;
+    margin-left: 0;
+  }
+
+  .moon-scan-list {
+    width: 100%;
+  }
+
+  .moon-scan-list > div {
+    grid-template-columns: minmax(0, 1.2fr) 0.65fr minmax(0, 1fr);
+  }
+
+  .moon-scanning {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.5rem;
+  }
+
+  .moon-scanning .moon-bar {
+    width: min(9rem, 48%);
+  }
+
+  .moon-radar .ship {
+    margin-left: 1rem;
+  }
+
+  .moon-summary dl div {
+    flex-wrap: wrap;
+  }
+
+  .moon-terminal-log {
+    bottom: 2.5rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .moon-terminal { font-size: 0.42rem; }
-  .moon-terminal-screen { min-height: 19rem; padding: 0.5rem; }
-  .moon-dock-grid { grid-template-columns: 0.9fr 1.1fr; }
-  .moon-shipyard-grid { grid-template-columns: 1.1fr 2.9fr; }
+  .moon-terminal-header span:nth-child(2) { display: none; }
   .moon-cabinet-marquee span:last-child { display: none; }
 }
 

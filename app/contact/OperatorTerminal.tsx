@@ -63,8 +63,8 @@ function Prompt({ children }: { children: React.ReactNode }) {
 function EchoRow({ label, value, muted }: { label: string; value: string; muted?: boolean }) {
   return (
     <p className="flex gap-3 text-xs sm:text-sm">
-      <span className="w-24 shrink-0 text-[var(--cabinet-accent)]">{label}</span>
-      <span className={muted ? "text-[#f8f1dc]/45" : "text-[#f8f1dc]"}>{value}</span>
+      <span className="w-20 shrink-0 text-[var(--cabinet-accent)] sm:w-24">{label}</span>
+      <span className={`min-w-0 break-words ${muted ? "text-[#f8f1dc]/45" : "text-[#f8f1dc]"}`}>{value}</span>
     </p>
   );
 }
@@ -291,7 +291,7 @@ function MethodStep({ api }: { api: ContactFormApi }) {
     <div className="term-welcome space-y-4">
       <Prompt>set --reply-channel</Prompt>
       <p className="font-mono text-xs text-[#f8f1dc]/60">How should the operator ring you back?</p>
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 min-[360px]:flex-row">
         <MethodButton method="email" selected={method === "email"} onSelect={api.selectMethod} />
         <MethodButton method="phone" selected={method === "phone"} onSelect={api.selectMethod} />
       </div>
@@ -525,7 +525,7 @@ export default function OperatorTerminal() {
         <p className="mb-4 inline-flex rounded-full border-2 border-[#17150f] bg-[#17150f] px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-[var(--accent)]">
           Cabinet OP-00 / operator booth
         </p>
-        <h1 className="max-w-4xl text-balance font-display text-[clamp(2.75rem,9vw,6.5rem)] font-black uppercase leading-[0.82] tracking-[-0.07em]">
+        <h1 className="max-w-4xl text-balance font-display text-[clamp(2.5rem,9vw,6.5rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] sm:leading-[0.84] sm:tracking-[-0.07em]">
           Page the operator.
         </h1>
         <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#433c2d] sm:text-xl">
@@ -561,7 +561,7 @@ export default function OperatorTerminal() {
                 <span className="ml-2 truncate font-mono text-xs text-[#f8f1dc]/60">
                   operator@{siteConfig.domain}: ~/booth
                 </span>
-                <span className="ml-auto font-mono text-[10px] uppercase tracking-[0.2em] text-[#f8f1dc]/55">
+                <span className="ml-auto shrink-0 font-mono text-[9px] uppercase tracking-[0.12em] text-[#f8f1dc]/55 sm:text-[10px] sm:tracking-[0.2em]">
                   {stepBadge(api.step, api.status)}
                 </span>
               </div>
