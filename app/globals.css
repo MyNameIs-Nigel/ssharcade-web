@@ -506,7 +506,7 @@ html {
 
 .moon-terminal-grid { display: grid; gap: 0.45rem; margin-top: 0.8rem; }
 .moon-dock-grid { grid-template-columns: 1fr 1fr; }
-.moon-shipyard-grid { grid-template-columns: 0.7fr 3.4fr 0.8fr; }
+.moon-shipyard-grid { grid-template-columns: 1.15fr 2.85fr; }
 .moon-panel { min-width: 0; border: 1px solid var(--accent); padding: 0.55rem; }
 .moon-panel > b, .moon-screen-title { color: #d8e5fa; font-weight: 800; }
 .moon-panel ul { margin: 0.4rem 0; padding: 0; list-style: none; }
@@ -563,7 +563,7 @@ html {
   .moon-terminal { font-size: 0.42rem; }
   .moon-terminal-screen { min-height: 19rem; padding: 0.5rem; }
   .moon-dock-grid { grid-template-columns: 0.9fr 1.1fr; }
-  .moon-shipyard-grid { grid-template-columns: 0.7fr 2.5fr 0.8fr; }
+  .moon-shipyard-grid { grid-template-columns: 1.1fr 2.9fr; }
   .moon-cabinet-marquee span:last-child { display: none; }
 }
 

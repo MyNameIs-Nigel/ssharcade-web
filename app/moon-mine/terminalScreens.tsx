@@ -150,7 +150,6 @@ function ShipyardScreen() {
           <dl className="moon-upgrade-list"><div><dt>U EXTRA CARGO</dt><dd>○○○○○ E</dd></div><div><dt>U SHIELD</dt><dd>○○○○○ E　↯ 3</dd></div></dl>
           <p>INTERNAL<br />　I empty — enter to install</p>
         </section>
-        <aside className="moon-panel moon-ship-stats"><b>◇ STATUS</b><p>PWR 3/10</p><Bar value="100%" /><p>MASS 114<br />×1.14 fx</p><strong>◇ 13198 cr</strong></aside>
       </div>
       <div className="moon-terminal-footer">↑/↓ SELECT · TAB PANE · ENTER BUY/PICK · X REMOVE · ESC/Q CHART <Cursor /></div>
     </div>
