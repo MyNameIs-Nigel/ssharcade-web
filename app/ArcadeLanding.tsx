@@ -19,13 +19,13 @@ const games = [
   {
     title: "Moon Mine",
     slug: "moon-mine",
-    status: "Cabinet warming",
+    status: "Now playing",
     accent: "#6ee7ff",
     cabinet: "M-02",
     summary:
-      "A quiet extraction loop for late-night operators, planned for the next bay in the arcade.",
-    command: "coming soon",
-    meter: "Prototype",
+      "A quiet extraction loop for late-night operators: scan the belt, mine rare ore, and get home before the pirates arrive.",
+    command: siteConfig.sshCommand,
+    meter: "Live cabinet",
   },
   {
     title: "Packet Derby",

@@ -28,7 +28,7 @@ export const siteConfig = {
  */
 export const cabinets = [
   { slug: "farm", title: "Farm", live: true },
-  { slug: "moon-mine", title: "Moon Mine", live: false },
+  { slug: "moon-mine", title: "Moon Mine", live: true },
   { slug: "packet-derby", title: "Packet Derby", live: false },
 ] as const;
 
