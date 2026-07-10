@@ -63,18 +63,37 @@ export default function MoonMineCabinet() {
   const active = phases.find((phase) => phase.id === activePhase) ?? phases[0];
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActivePhase(visible.target.id as PhaseId);
-      },
-      { threshold: [0.35, 0.55, 0.75], rootMargin: "-16% 0px -16% 0px" },
-    );
+    let animationFrame: number | null = null;
 
-    sectionRefs.current.forEach((section) => section && observer.observe(section));
-    return () => observer.disconnect();
+    const updatePhase = () => {
+      animationFrame = null;
+      const marker = window.innerHeight * 0.45;
+      let nextPhase: PhaseId = phases[0].id;
+
+      // A single point in the viewport determines the active screen. Unlike
+      // intersection ratios, this cannot toggle back and forth at boundaries.
+      sectionRefs.current.forEach((section) => {
+        if (section && section.getBoundingClientRect().top <= marker) {
+          nextPhase = section.id as PhaseId;
+        }
+      });
+
+      setActivePhase((current) => current === nextPhase ? current : nextPhase);
+    };
+
+    const scheduleUpdate = () => {
+      if (animationFrame === null) animationFrame = window.requestAnimationFrame(updatePhase);
+    };
+
+    scheduleUpdate();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      if (animationFrame !== null) window.cancelAnimationFrame(animationFrame);
+    };
   }, []);
 
   const copyCommand = useCallback(async () => {
