@@ -301,6 +301,272 @@ html {
   }
 }
 
+/* ------------------------------------------------------------------ *
+ * Moon Miner cabinet (/moon-mine)
+ * A dark, space-borne flight log. Its phase accent is supplied by the
+ * scroll story, while the terminal remains a static reconstruction.
+ * ------------------------------------------------------------------ */
+
+.moon-mine-root {
+  --accent-deep: color-mix(in srgb, var(--accent) 64%, #13254a);
+  background:
+    radial-gradient(circle at 72% 20%, color-mix(in srgb, var(--moon-glow) 28%, transparent), transparent 28rem),
+    #030712;
+  transition: --accent 650ms ease, --moon-glow 650ms ease, background 650ms ease;
+}
+
+.moon-starfield {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 11% 17%, #dfeeff 0 1px, transparent 1.5px),
+    radial-gradient(circle at 68% 8%, #a9c7ee 0 1px, transparent 1.5px),
+    radial-gradient(circle at 37% 67%, #dfeeff 0 1px, transparent 1.5px),
+    radial-gradient(circle at 91% 61%, #b6ccff 0 1px, transparent 1.5px),
+    radial-gradient(ellipse at 50% 110%, #0b1834, #030712 66%);
+  background-size: 19rem 16rem, 28rem 23rem, 23rem 19rem, 34rem 29rem, auto;
+}
+
+.moon-starfield::before,
+.moon-starfield::after {
+  position: absolute;
+  inset: -25%;
+  content: "";
+  background-image:
+    radial-gradient(circle, rgba(231, 244, 255, 0.9) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(109, 194, 255, 0.8) 0 1px, transparent 1.5px);
+  background-position: 2rem 3rem, 10rem 8rem;
+  background-size: 13rem 11rem, 19rem 17rem;
+  animation: moonDrift 75s linear infinite;
+}
+
+.moon-starfield::after {
+  opacity: 0.45;
+  background-size: 22rem 20rem, 31rem 27rem;
+  animation-direction: reverse;
+  animation-duration: 115s;
+}
+
+@keyframes moonDrift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-7%, 9%, 0); }
+}
+
+.moon-nav-link,
+.moon-kicker {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.moon-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #315276;
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  color: #dcecff;
+  font-size: 0.7rem;
+  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.moon-nav-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.moon-kicker {
+  color: var(--accent);
+  font-size: 0.7rem;
+}
+
+.moon-command-button,
+.moon-ghost-button {
+  display: flex;
+  min-height: 3.75rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.moon-command-button {
+  flex: 1;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #020611;
+  box-shadow: 0 0 2.5rem color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.moon-command-button > span:last-child {
+  border-left: 1px solid color-mix(in srgb, #020611 25%, transparent);
+  padding-left: 1rem;
+  text-transform: uppercase;
+}
+
+.moon-ghost-button {
+  border: 1px solid #315276;
+  color: #dcecff;
+}
+
+.moon-ghost-button:hover { border-color: var(--accent); color: var(--accent); }
+
+.moon-story-section {
+  min-height: min(70vh, 42rem);
+  border-top: 1px solid color-mix(in srgb, var(--accent) 45%, #1e3656);
+  padding: clamp(2.5rem, 8vh, 6rem) 0;
+}
+
+.moon-cabinet-frame {
+  border: 1px solid color-mix(in srgb, var(--accent) 72%, #52719a);
+  border-radius: 1rem;
+  padding: 0.65rem;
+  background: linear-gradient(145deg, #17243a, #07111f 50%, #15233a);
+  box-shadow: 0 0 0 1px #02050d, 0 1.2rem 4rem color-mix(in srgb, var(--moon-glow) 22%, transparent);
+}
+
+.moon-cabinet-marquee,
+.moon-cabinet-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.moon-cabinet-marquee {
+  padding: 0.7rem 0.8rem 0.8rem;
+  color: var(--accent);
+}
+
+.moon-cabinet-marquee span:last-child { color: #7892b7; font-size: 0.48rem; }
+
+.moon-cabinet-controls {
+  padding: 0.75rem 0.3rem 0.1rem;
+  color: #7892b7;
+}
+
+.moon-cabinet-screen {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, #273c5a);
+  border-radius: 0.5rem;
+  background: #202530;
+  box-shadow: inset 0 0 4rem color-mix(in srgb, var(--moon-glow) 20%, transparent);
+}
+
+.moon-terminal {
+  position: relative;
+  min-height: 24rem;
+  overflow: hidden;
+  color: #a9bdd9;
+  background: #202530;
+  font-family: var(--font-mono);
+  font-size: clamp(0.42rem, 1.05vw, 0.66rem);
+  line-height: 1.36;
+}
+
+.moon-terminal::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.11) 50%);
+  background-size: 100% 3px;
+  mix-blend-mode: multiply;
+}
+
+.moon-terminal-screen { min-height: 24rem; padding: 0.75rem; }
+
+.moon-terminal-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.7rem;
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding: 0.42rem 0.3rem;
+  color: #d8e5fa;
+  font-weight: 800;
+}
+
+.moon-terminal-header span:first-child { color: #71daff; }
+.moon-terminal-header.is-damaged { border-color: #ff6e78; }
+.moon-terminal-header.is-damaged span:last-child { color: #ff8a90; }
+.moon-fuel-meter { width: 4rem; height: 0.7rem; background: #006f76; }
+.moon-fuel-meter i { display: block; width: 47%; height: 100%; background: #d9d9ff; }
+
+.moon-terminal-grid { display: grid; gap: 0.45rem; margin-top: 0.8rem; }
+.moon-dock-grid { grid-template-columns: 1fr 1fr; }
+.moon-shipyard-grid { grid-template-columns: 1.15fr 2.85fr; }
+.moon-panel { min-width: 0; border: 1px solid var(--accent); padding: 0.55rem; }
+.moon-panel > b, .moon-screen-title { color: #d8e5fa; font-weight: 800; }
+.moon-panel ul { margin: 0.4rem 0; padding: 0; list-style: none; }
+.moon-panel li { display: flex; justify-content: space-between; gap: 0.25rem; }
+.moon-panel li em { color: #ff8e74; font-style: normal; }
+.moon-panel .selected, .moon-scan-list .selected { background: color-mix(in srgb, var(--accent) 55%, transparent); color: #ffffff; }
+.moon-panel .selected strong { color: #73e6ab; }
+.moon-panel p { margin: 0.7rem 0 0; color: #8197b6; }
+
+.moon-service-list, .moon-upgrade-list { margin: 0.45rem 0; }
+.moon-service-list div, .moon-upgrade-list div { display: flex; justify-content: space-between; gap: 0.3rem; }
+.moon-service-list dd, .moon-upgrade-list dd { margin: 0; color: #d7d1c3; }
+.moon-highlight { color: #67e7cf !important; }
+.moon-ship-stats strong { display: block; margin-top: 1.5rem; color: #f6da5d; }
+.moon-bar { display: inline-block; width: 4.6rem; height: 0.7rem; vertical-align: middle; background: #0c4957; }
+.moon-bar i { display: block; width: var(--bar-value); height: 100%; background: var(--bar-color); }
+
+.moon-terminal-footer, .moon-terminal-log {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.55rem;
+  left: 0.75rem;
+  border-top: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  padding-top: 0.55rem;
+  color: #86a8cd;
+  font-weight: 800;
+}
+
+.moon-terminal-log { bottom: 2rem; min-height: 4rem; }
+.moon-terminal-cursor { float: right; width: 0.55em; height: 1.2em; background: #6eb6ff; animation: moonCursor 0.9s steps(1, end) infinite; }
+@keyframes moonCursor { 50% { opacity: 0; } }
+
+.moon-screen-title { margin-top: 0.8rem; }
+.moon-screen-title span { color: var(--accent); }
+.moon-scan-map { position: relative; height: 7.8rem; margin-left: 25%; }
+.moon-scan-map strong { position: absolute; top: 50%; left: 48%; color: #d8e5fa; }
+.asteroid { position: absolute; width: 0.7rem; height: 1.3rem; background: #7795c1; }
+.asteroid.a1 { top: 18%; left: 12%; }.asteroid.a2 { top: 42%; left: 40%; background: #a5d7ff; }.asteroid.a3 { top: 16%; right: 14%; }.asteroid.a4 { right: 2%; bottom: 10%; background: #503d76; }
+.moon-scan-list { width: 67%; }
+.moon-scan-list > div { display: grid; grid-template-columns: 1.2fr 0.7fr 1.3fr; gap: 0.4rem; padding: 0 0.2rem; }
+.moon-scan-list small { display: none; }.moon-scan-list .out { color: #ff7a7a; }
+.moon-scanning { font-weight: 800; }.moon-scanning .moon-bar { width: 9rem; height: 1rem; }
+
+.moon-mining-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1rem; margin-top: 0.8rem; }.moon-mining-layout p { margin: 0.55rem 0; }.moon-cargo { margin-top: 1.7rem !important; color: #d9e5fa; }.moon-bail { color: #f2d96a; font-weight: 800; }.moon-radar { display: grid; align-content: start; gap: 0.15rem; color: #7189aa; }.moon-radar b { color: #ffb35f; }.moon-radar .pirate { color: #ff6673; }.moon-radar .ship { color: #6ee7ff; margin-left: 2rem; }
+
+.moon-summary { margin-top: 0.8rem; border: 1px solid #ff6e78; padding: 0.7rem; }.moon-summary > b, .moon-summary h3 { color: #ff797f; }.moon-summary h3 { margin: 0.15rem 0; font-size: 1.1em; }.moon-summary p { margin: 0.4rem 0; }.moon-summary dl { margin: 0.9rem 0; }.moon-summary dl div { display: flex; gap: 0.5rem; }.moon-summary dt { color: #ebdd74; font-weight: 800; }.moon-summary dd { margin: 0; color: #d8e5fa; }.moon-summary .moon-actions { color: #7ee8e0; font-weight: 800; }
+
+@media (max-width: 1023px) {
+  .moon-terminal { font-size: clamp(0.48rem, 1.6vw, 0.68rem); }
+  .moon-terminal-screen { min-height: 22rem; }
+}
+
+@media (max-width: 480px) {
+  .moon-terminal { font-size: 0.42rem; }
+  .moon-terminal-screen { min-height: 19rem; padding: 0.5rem; }
+  .moon-dock-grid { grid-template-columns: 0.9fr 1.1fr; }
+  .moon-shipyard-grid { grid-template-columns: 1.1fr 2.9fr; }
+  .moon-cabinet-marquee span:last-child { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
