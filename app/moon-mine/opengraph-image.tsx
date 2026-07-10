@@ -41,7 +41,7 @@ export default function MoonMineOpengraphImage() {
                 fontFamily: "monospace",
               }}
             >
-              ◈
+              M
             </div>
             <div style={{ display: "flex", fontSize: 42, fontWeight: 800, letterSpacing: -1 }}>SSH-ARCADE</div>
           </div>
