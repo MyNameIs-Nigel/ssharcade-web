@@ -108,29 +108,29 @@ export default function MoonMineCabinet() {
 
   return (
     <main
-      className="theme-root moon-mine-root min-h-screen text-[#dcecff]"
+      className="theme-root moon-mine-root min-h-screen overflow-x-clip text-[#dcecff]"
       data-phase={activePhase}
       style={{ "--accent": active.accent, "--moon-glow": active.glow } as CSSProperties}
     >
       <div aria-hidden="true" className="moon-starfield fixed inset-0 pointer-events-none" />
-      <header className="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
+      <header className="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-5 sm:px-6 lg:px-8">
         <Link href="/" className="moon-nav-link">
           <span aria-hidden="true">←</span> Arcade floor
         </Link>
-        <p className="font-mono text-[0.62rem] font-bold uppercase tracking-[0.22em] text-[#b4c7e5] sm:text-xs">
-          Cabinet M-02 <span className="mx-1 text-[var(--accent)]">/</span> live
+        <p className="shrink-0 font-mono text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b4c7e5] sm:text-xs sm:tracking-[0.22em]">
+          <span className="hidden min-[360px]:inline">Cabinet M-02 </span><span className="hidden min-[360px]:inline mx-1 text-[var(--accent)]">/</span> live
         </p>
       </header>
 
       <section className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pb-24 lg:pt-16">
         <p className="moon-kicker">A terminal extraction game / live over SSH</p>
-        <h1 className="max-w-5xl text-balance font-display text-[clamp(3.25rem,10vw,8.75rem)] font-black uppercase leading-[0.8] tracking-[-0.075em]">
+        <h1 className="max-w-5xl text-balance font-display text-[clamp(2.65rem,10vw,8.75rem)] font-black uppercase leading-[0.9] tracking-[-0.05em] sm:leading-[0.82] sm:tracking-[-0.075em]">
           Mine the <span className="text-[var(--accent)]">quiet</span> side of the moon.
         </h1>
         <div className="mt-8 flex max-w-2xl flex-col gap-4 sm:flex-row">
-          <button type="button" onClick={copyCommand} className="moon-command-button">
+          <button type="button" onClick={copyCommand} className="moon-command-button min-w-0 w-full">
             <span className="min-w-0 truncate">{siteConfig.sshCommand}</span>
-            <span>{copied ? "Copied" : "Copy"}</span>
+            <span className="shrink-0">{copied ? "Copied" : "Copy"}</span>
           </button>
           <a href="#dock" className="moon-ghost-button">Begin the run <span aria-hidden="true">↓</span></a>
         </div>
@@ -150,7 +150,7 @@ export default function MoonMineCabinet() {
               aria-labelledby={`${phase.id}-title`}
             >
               <p className="moon-kicker">{phase.eyebrow}</p>
-              <h2 id={`${phase.id}-title`} className="mt-3 max-w-xl font-display text-[clamp(2.4rem,5vw,5rem)] font-black uppercase leading-[0.84] tracking-[-0.06em]">
+              <h2 id={`${phase.id}-title`} className="mt-3 max-w-xl font-display text-[clamp(2.15rem,5vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.045em] sm:leading-[0.86] sm:tracking-[-0.06em]">
                 {phase.title}
               </h2>
               <p className="mt-6 max-w-lg text-lg font-medium leading-8 text-[#b9c9e1]">{phase.copy}</p>
@@ -164,7 +164,7 @@ export default function MoonMineCabinet() {
           ))}
         </div>
 
-        <aside className="order-1 lg:sticky lg:top-8 lg:order-2" aria-label="Moon Miner terminal display">
+        <aside className="order-1 hidden lg:sticky lg:top-8 lg:order-2 lg:block" aria-label="Moon Miner terminal display">
           <div className="moon-cabinet-frame">
             <div className="moon-cabinet-marquee">
               <span>✦ MOON MINER ✦</span>
@@ -184,7 +184,7 @@ export default function MoonMineCabinet() {
       <footer className="relative z-10 border-t border-[#244061] bg-[#030712]/70 px-4 py-8 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[#91a8ca] sm:flex-row">
           <span>Moon Miner · cabinet M-02 · SSH-Arcade</span>
-          <span>{siteConfig.sshCommand}</span>
+          <span className="break-all sm:break-normal">{siteConfig.sshCommand}</span>
         </div>
       </footer>
     </main>

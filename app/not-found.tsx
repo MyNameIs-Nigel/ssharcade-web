@@ -40,8 +40,8 @@ export default function NotFound() {
         </p>
 
         <div className="relative">
-          <div className="absolute -left-3 top-10 hidden h-24 w-7 rounded-l-2xl border-4 border-r-0 border-[#17150f] bg-[var(--accent-deep)] shadow-[5px_5px_0_#17150f] sm:block" />
-          <div className="absolute -right-3 top-20 hidden h-28 w-7 rounded-r-2xl border-4 border-l-0 border-[#17150f] bg-[var(--accent)] shadow-[5px_5px_0_#17150f] sm:block" />
+          <div className="absolute -left-3 top-10 hidden h-24 w-7 rounded-l-2xl border-4 border-r-0 border-[#17150f] bg-[var(--accent-deep)] shadow-[5px_5px_0_#17150f] md:block" />
+          <div className="absolute -right-3 top-20 hidden h-28 w-7 rounded-r-2xl border-4 border-l-0 border-[#17150f] bg-[var(--accent)] shadow-[5px_5px_0_#17150f] md:block" />
 
           <div className="rounded-[2.3rem] border-4 border-[#17150f] bg-[#4b4a42] p-4 shadow-[6px_6px_0_#17150f] sm:p-6 sm:shadow-[14px_14px_0_#17150f]">
             <div className="cabinet-stage rounded-[1.7rem] border-4 border-[#17150f] bg-[#f8f1dc] p-4">
@@ -59,7 +59,7 @@ export default function NotFound() {
                   <p className="mb-2 font-mono text-xs uppercase tracking-[0.24em] text-[var(--cabinet-accent)]">
                     SSH-Arcade reports
                   </p>
-                  <h1 className="font-display text-[clamp(4rem,18vw,9rem)] font-black uppercase leading-none tracking-[-0.08em]">
+                  <h1 className="font-display text-[clamp(3rem,18vw,9rem)] font-black uppercase leading-none tracking-[-0.06em] sm:tracking-[-0.08em]">
                     404
                   </h1>
                   <p className="mt-4 font-display text-2xl font-black uppercase tracking-[-0.04em] sm:text-3xl">

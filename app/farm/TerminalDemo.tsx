@@ -300,7 +300,7 @@ export default function TerminalDemo() {
                 <div className="truncate" style={{ color: ready ? TERM.bright : TERM.text }}>
                   {crop.name}
                 </div>
-                <div className="mt-0.5 whitespace-nowrap text-[0.68rem] sm:text-xs">
+                <div className="mt-0.5 break-words text-[0.68rem] sm:whitespace-nowrap sm:text-xs">
                   {ready ? (
                     <span style={{ color: TERM.bright }}>✓ ready!</span>
                   ) : (
