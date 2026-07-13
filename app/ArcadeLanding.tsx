@@ -183,12 +183,23 @@ export default function ArcadeLanding() {
                   {copied ? "Copied" : "Copy"}
                 </span>
               </button>
-              <a
-                href="#coin-slot"
-                className="flex min-h-16 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[var(--accent-deep)] px-6 py-4 text-sm font-black uppercase tracking-[0.18em] shadow-[4px_4px_0_#17150f] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] sm:shadow-[7px_7px_0_#17150f]"
-              >
-                Support costs
-              </a>
+              {view ? (
+                <a
+                  href={`/${view.slug}`}
+                  className="flex min-h-16 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[var(--accent-deep)] px-6 py-4 text-sm font-black uppercase tracking-[0.18em] shadow-[4px_4px_0_#17150f] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] sm:shadow-[7px_7px_0_#17150f]"
+                >
+                  Checkout {view.title}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => selectGame(0)}
+                  aria-label="Press start to power on the Farm cabinet"
+                  className="flex min-h-16 items-center justify-center rounded-[1.15rem] border-4 border-[#17150f] bg-[var(--accent-deep)] px-6 py-4 text-sm font-black uppercase tracking-[0.18em] shadow-[4px_4px_0_#17150f] transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] sm:shadow-[7px_7px_0_#17150f]"
+                >
+                  Power On
+                </button>
+              )}
             </div>
           </div>
 
