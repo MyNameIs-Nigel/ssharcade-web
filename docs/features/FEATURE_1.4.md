@@ -55,7 +55,7 @@ the whole tree honest over time without forcing a full rewrite.
 - **Git hooks or scheduled cron.** Decided trigger model is *manual skill + CI
   nudge*; commit hooks and cron are explicitly out (see §15 / Open Questions).
 - **Documenting unbuilt routes' content** — but the audit DOES flag when a
-  previously-unbuilt route (e.g. `/donate`, `/moon-mine`) gains a real file so a
+  previously-unbuilt route (e.g. `/donate`, `/packet-derby`) gains a real file so a
   doc shell can be created.
 
 ## 4. Personas & User Stories

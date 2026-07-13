@@ -17,8 +17,8 @@ const games = [
     meter: "Live cabinet",
   },
   {
-    title: "Moon Mine",
-    slug: "moon-mine",
+    title: "Moon Miner",
+    slug: "moon-miner",
     status: "Now playing",
     accent: "#6ee7ff",
     cabinet: "M-02",

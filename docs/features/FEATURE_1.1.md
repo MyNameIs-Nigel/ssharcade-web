@@ -53,7 +53,7 @@ foundation; nothing else in §1 can land without it.
 - **Human onboarding prose / tutorials.** The audience is agent-first (see §6);
   polished narrative onboarding is out of scope.
 - **Documenting unbuilt routes.** Cabinet/page routes that 404 by design
-  (`/farm` page content aside, `/moon-mine`, `/donate`, etc.) are not given doc
+  (`/packet-derby`, `/donate`, etc.) are not given doc
   shells until they exist in code — see [FEATURE_1.4.md](FEATURE_1.4.md) for how
   new files get shells later.
 - **Auto-generated API doc dumps** (e.g. TypeDoc). The value here is curated

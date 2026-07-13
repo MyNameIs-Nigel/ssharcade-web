@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "../site";
-import MoonMineCabinet from "./MoonMineCabinet";
+import MoonMinerCabinet from "./MoonMinerCabinet";
 
 const title = "Moon Miner";
 const description =
@@ -9,12 +9,12 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/moon-mine" },
+  alternates: { canonical: "/moon-miner" },
   openGraph: {
     type: "website",
     title: `${title} | ${siteConfig.name}`,
     description,
-    url: `${siteConfig.url}/moon-mine`,
+    url: `${siteConfig.url}/moon-miner`,
   },
   twitter: {
     card: "summary_large_image",
@@ -23,6 +23,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MoonMinePage() {
-  return <MoonMineCabinet />;
+export default function MoonMinerPage() {
+  return <MoonMinerCabinet />;
 }

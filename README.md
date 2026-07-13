@@ -26,4 +26,4 @@ Generated from that config:
 - `app/sitemap.ts` → `/sitemap.xml`
 - `app/llms.txt/route.ts` → `/llms.txt`
 
-The cabinet routes (`/farm`, `/moon-mine`, `/packet-derby`) and pages (`/docs`, `/donate`, `/contact`) are listed in the sitemap and `llms.txt` but not built yet.
+`/farm`, `/moon-miner`, and `/contact` are built. The cabinet route (`/packet-derby`) and pages (`/docs`, `/donate`) are listed in the sitemap and `llms.txt` but not built yet.

@@ -56,7 +56,7 @@ const phases = [
 
 type PhaseId = (typeof phases)[number]["id"];
 
-export default function MoonMineCabinet() {
+export default function MoonMinerCabinet() {
   const [activePhase, setActivePhase] = useState<PhaseId>("dock");
   const [copied, setCopied] = useState(false);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
@@ -108,7 +108,7 @@ export default function MoonMineCabinet() {
 
   return (
     <main
-      className="theme-root moon-mine-root min-h-screen overflow-x-clip text-[#dcecff]"
+      className="theme-root moon-miner-root min-h-screen overflow-x-clip text-[#dcecff]"
       data-phase={activePhase}
       style={{ "--accent": active.accent, "--moon-glow": active.glow } as CSSProperties}
     >

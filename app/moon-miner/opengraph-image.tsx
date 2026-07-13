@@ -7,7 +7,7 @@ export const contentType = "image/png";
 
 const accent = "#6ee7ff";
 
-export default function MoonMineOpengraphImage() {
+export default function MoonMinerOpengraphImage() {
   return new ImageResponse(
     (
       <div

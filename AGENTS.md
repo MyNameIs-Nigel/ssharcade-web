@@ -45,7 +45,9 @@ the dev server, delete `.next`, and restart — it is not a code bug.
   - `opengraph-image.tsx` — social card (also reused as the Twitter image)
   - `manifest.ts` → `/manifest.webmanifest`
   - `robots.ts` → `/robots.txt`, `sitemap.ts` → `/sitemap.xml`
-  - `llms.txt/route.ts` → `/llms.txt` (route handler, `force-static`)
+  - `llms.txt/route.ts` → `/llms.txt` (route handler, `force-static`); cabinets
+    may also have their own, e.g. `moon-miner/llms.txt/route.ts` →
+    `/moon-miner/llms.txt`, for deeper per-game context
 - **`app/page.tsx`** is a thin server wrapper around **`app/ArcadeLanding.tsx`**,
   the client component holding all interactive arcade UI.
 
@@ -65,10 +67,14 @@ the dev server, delete `.next`, and restart — it is not a code bug.
 - **`next/og` / satori** (OG + apple icons): multi-child flex needs explicit
   `display: flex`; use `marginRight` not `gap`. Works with the built-in font —
   do not add custom fonts unless needed.
-- **Unbuilt routes are intentional.** The cabinet routes (`/moon-mine`,
-  `/packet-derby`) and pages (`/docs`, `/donate`) are listed in the sitemap and
-  `llms.txt` but not built yet — they 404 by design. Add them to `app/site.ts`
-  first if you build them. `/farm` and `/contact` are built.
+- **Unbuilt routes are intentional.** The cabinet route (`/packet-derby`) and
+  pages (`/docs`, `/donate`) are listed in the sitemap and `llms.txt` but not
+  built yet — they 404 by design. Add them to `app/site.ts` first if you build
+  them. `/farm`, `/moon-miner`, and `/contact` are built.
+- **`/moon-miner` mirrors the real game.** Copy, ship names, and terminal
+  screens in `app/moon-miner/` should stay consistent with the story spec in
+  `../ssh-games/ssh-moonminer/docs/01-concept-and-story.md` — that doc (not
+  this site) is authoritative for lore, ship names, and mechanics.
 - **`/contact` is the operator booth.** A CRT-housed multi-step "operator
   terminal" (`app/contact/OperatorTerminal.tsx`) collects callsign → reply
   channel → message and POSTs to the `app/api/contact/route.ts` route handler,

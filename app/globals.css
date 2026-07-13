@@ -302,12 +302,12 @@ html {
 }
 
 /* ------------------------------------------------------------------ *
- * Moon Miner cabinet (/moon-mine)
+ * Moon Miner cabinet (/moon-miner)
  * A dark, space-borne flight log. Its phase accent is supplied by the
  * scroll story, while the terminal remains a static reconstruction.
  * ------------------------------------------------------------------ */
 
-.moon-mine-root {
+.moon-miner-root {
   --accent-deep: color-mix(in srgb, var(--accent) 64%, #13254a);
   background:
     radial-gradient(circle at 72% 20%, color-mix(in srgb, var(--moon-glow) 28%, transparent), transparent 28rem),

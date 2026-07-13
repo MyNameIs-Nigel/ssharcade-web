@@ -12,7 +12,8 @@ export function GET() {
       const note = cabinet.live
         ? `live now — \`${siteConfig.sshCommand}\` and pick ${cabinet.title} from the arcade menu`
         : "in development, not yet playable";
-      return `- [${cabinet.title}](${route}): ${note}`;
+      const detail = cabinet.slug === "moon-miner" ? ` (see ${route}/llms.txt for story/gameplay detail)` : "";
+      return `- [${cabinet.title}](${route}): ${note}${detail}`;
     })
     .join("\n");
 
